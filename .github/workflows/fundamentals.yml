@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas yfinance
-      - name: Fetch facts (slow and sometimes patchy: missing ones stay "Not available")
+      - name: Fetch facts (slow and sometimes patchy, missing ones stay Not available)
         run: python pipeline/fundamentals.py
       - name: Publish facts to the "data" branch
         run: |
