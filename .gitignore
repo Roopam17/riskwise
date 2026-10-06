@@ -31,3 +31,6 @@ app_data/
 
 # NOT ignored on purpose (small, needed by the nightly job): models/, data/nse_symbols.csv,
 # data/universe.csv, data/prices_summary.csv, data/scoreboard*.csv
+
+# Leftovers from notebook 01 (the 5-stock test download)
+data/test/
