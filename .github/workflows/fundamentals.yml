@@ -1,0 +1,35 @@
+# Once a week: refresh company facts (market cap, P/E, dividend yield, sector) and publish them.
+name: weekly-company-facts
+on:
+  schedule:
+    - cron: "0 3 * * 0"          # Sunday 03:00 UTC
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  facts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas yfinance
+      - name: Fetch facts (slow and sometimes patchy: missing ones stay "Not available")
+        run: python pipeline/fundamentals.py
+      - name: Publish facts to the "data" branch
+        run: |
+          cp app_data/fundamentals.json /tmp/fundamentals.json
+          git config user.name "riskwise-bot"
+          git config user.email "riskwise-bot@users.noreply.github.com"
+          git fetch origin data
+          git checkout -B data origin/data
+          cp /tmp/fundamentals.json fundamentals.json
+          git add fundamentals.json
+          git commit -m "Weekly company facts $(date -u +%F)" || echo "nothing changed"
+          git push origin data

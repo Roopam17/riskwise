@@ -1,0 +1,49 @@
+group_type,group,model,miss_share
+jumpiness,calm third,Naive,0.3579
+jumpiness,calm third,Naive-20,0.3319
+jumpiness,calm third,GARCH,0.3345
+jumpiness,calm third,XGBoost,0.2851
+jumpiness,calm third,LSTM,0.2819
+jumpiness,calm third,Ensemble: GARCH + XGBoost,0.2998
+jumpiness,calm third,Ensemble: XGBoost + LSTM,0.2824
+jumpiness,calm third,Ensemble: all three,0.2906
+jumpiness,middle third,Naive,0.3614
+jumpiness,middle third,Naive-20,0.3336
+jumpiness,middle third,GARCH,0.3578
+jumpiness,middle third,XGBoost,0.2855
+jumpiness,middle third,LSTM,0.2822
+jumpiness,middle third,Ensemble: GARCH + XGBoost,0.3077
+jumpiness,middle third,Ensemble: XGBoost + LSTM,0.2829
+jumpiness,middle third,Ensemble: all three,0.2947
+jumpiness,jumpy third,Naive,0.3325
+jumpiness,jumpy third,Naive-20,0.3155
+jumpiness,jumpy third,GARCH,0.3421
+jumpiness,jumpy third,XGBoost,0.2659
+jumpiness,jumpy third,LSTM,0.2643
+jumpiness,jumpy third,Ensemble: GARCH + XGBoost,0.2848
+jumpiness,jumpy third,Ensemble: XGBoost + LSTM,0.2637
+jumpiness,jumpy third,Ensemble: all three,0.2719
+history,1 to 5 years,Naive,0.364
+history,1 to 5 years,Naive-20,0.3432
+history,1 to 5 years,GARCH,0.3343
+history,1 to 5 years,XGBoost,0.2875
+history,1 to 5 years,LSTM,0.2839
+history,1 to 5 years,Ensemble: GARCH + XGBoost,0.295
+history,1 to 5 years,Ensemble: XGBoost + LSTM,0.2846
+history,1 to 5 years,Ensemble: all three,0.2872
+history,5 to 10 years,Naive,0.3507
+history,5 to 10 years,Naive-20,0.3263
+history,5 to 10 years,GARCH,0.3456
+history,5 to 10 years,XGBoost,0.2789
+history,5 to 10 years,LSTM,0.2763
+history,5 to 10 years,Ensemble: GARCH + XGBoost,0.2973
+history,5 to 10 years,Ensemble: XGBoost + LSTM,0.2765
+history,5 to 10 years,Ensemble: all three,0.2855
+history,over 10 years,Naive,0.3489
+history,over 10 years,Naive-20,0.3251
+history,over 10 years,GARCH,0.3459
+history,over 10 years,XGBoost,0.2777
+history,over 10 years,LSTM,0.2751
+history,over 10 years,Ensemble: GARCH + XGBoost,0.2978
+history,over 10 years,Ensemble: XGBoost + LSTM,0.2753
+history,over 10 years,Ensemble: all three,0.2856

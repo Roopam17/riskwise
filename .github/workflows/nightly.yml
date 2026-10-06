@@ -1,0 +1,43 @@
+# Every weekday evening (after the Indian market closes): fetch prices, make forecasts, publish the data files.
+name: nightly-forecasts
+on:
+  schedule:
+    - cron: "30 12 * * 1-5"      # 12:30 UTC = 18:00 India time, Monday to Friday
+  workflow_dispatch: {}           # lets you press "Run workflow" by hand
+permissions:
+  contents: write
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  forecasts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+      - name: Install (CPU-only PyTorch keeps it small)
+        run: |
+          pip install --extra-index-url https://download.pytorch.org/whl/cpu -r pipeline/requirements.txt
+      - name: Build forecasts
+        run: python pipeline/nightly.py
+      - name: Keep last week's company facts (they are refreshed weekly, not nightly)
+        run: |
+          git fetch origin data || true
+          git show origin/data:fundamentals.json > app_data/fundamentals.json 2>/dev/null || echo "no facts file yet"
+      - name: Publish to the "data" branch
+        run: |
+          cp -r app_data /tmp/app_data
+          git config user.name "riskwise-bot"
+          git config user.email "riskwise-bot@users.noreply.github.com"
+          git checkout --orphan data-new
+          git rm -rf --quiet . || true
+          cp -r /tmp/app_data/. .
+          git add -A
+          git commit -m "Nightly data $(date -u +%F)"
+          git push --force origin data-new:data

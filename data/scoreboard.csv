@@ -1,0 +1,9 @@
+model,miss share,gain vs Naive (%),QLIKE,stocks beating Naive (%)
+Naive,0.3506,0.0,5.1936,0.0
+Naive-20,0.327,6.7335,0.5635,89.7866
+GARCH,0.3448,1.6528,0.4326,62.3476
+XGBoost,0.2788,20.4755,0.4376,100.0
+LSTM,0.2761,21.2382,0.4363,99.9238
+Ensemble: GARCH + XGBoost,0.2974,15.169,0.3947,97.561
+Ensemble: XGBoost + LSTM,0.2764,21.1729,0.4296,100.0
+Ensemble: all three,0.2857,18.5096,0.3939,99.6951

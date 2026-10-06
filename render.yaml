@@ -1,0 +1,17 @@
+# Render "blueprint": tells Render how to run the backend. Free plan sleeps when idle (first visit can take ~30 s).
+services:
+  - type: web
+    name: riskwise-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: DATA_BASE_URL          # where the nightly job publishes its files, e.g. https://raw.githubusercontent.com/YOU/riskwise/data
+        sync: false
+      - key: ALLOWED_ORIGINS        # your website's address, e.g. https://riskwise.vercel.app (comma-separate several)
+        sync: false

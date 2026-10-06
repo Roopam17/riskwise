@@ -1,0 +1,33 @@
+# Python toolbox and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Website
+frontend/node_modules/
+frontend/dist/
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Big generated data (rebuilt by the scripts; never commit it)
+data/prices/
+data/garch/
+data/features.parquet
+data/preds_*.parquet
+data/exam_table.parquet
+data/fundamentals_cache.json
+data/garch_failed.csv
+data/prices_failed.csv
+app_data/
+
+# Mac and editor noise
+.DS_Store
+.vscode/
+.claude/settings.local.json
+
+# NOT ignored on purpose (small, needed by the nightly job): models/, data/nse_symbols.csv,
+# data/universe.csv, data/prices_summary.csv, data/scoreboard*.csv
