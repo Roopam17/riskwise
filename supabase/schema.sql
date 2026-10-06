@@ -12,8 +12,16 @@ create table if not exists public.watchlist (
 
 alter table public.watchlist enable row level security;
 
+-- Permissions. Row-level security (below) decides WHICH rows; these decide who may touch the table at all.
+-- Written out explicitly so it works whether or not "Automatically expose new tables" is switched on.
+revoke all on public.watchlist from anon;
+grant select, insert, delete on public.watchlist to authenticated;
+
+drop policy if exists "read own watchlist" on public.watchlist;
 create policy "read own watchlist"   on public.watchlist for select using (auth.uid() = user_id);
+drop policy if exists "add to own watchlist" on public.watchlist;
 create policy "add to own watchlist" on public.watchlist for insert with check (auth.uid() = user_id);
+drop policy if exists "remove from own" on public.watchlist;
 create policy "remove from own"      on public.watchlist for delete using (auth.uid() = user_id);
 
 -- Server-side cap: a person can keep at most 50 stocks (the website also checks, but this cannot be bypassed).
