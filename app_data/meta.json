@@ -1,0 +1,29 @@
+{
+ "asof": "2026-10-09",
+ "generated_at": "2026-10-10T00:01:36+05:30",
+ "stocks_with_forecast": 1581,
+ "stocks_total": 2599,
+ "levels": {
+  "High": 559,
+  "Medium": 546,
+  "Low": 476
+ },
+ "flagged_today": 10,
+ "risk_bands": {
+  "low_below": 2.31,
+  "high_from": 3.07,
+  "made_from": "ensemble out-of-sample guesses, last 12 months to 2026-09-28"
+ },
+ "skipped": {
+  "POLICYBZR": "price jump: possible stock split or data error in the last 25 days",
+  "BHAGYANGR": "price jump: possible stock split or data error in the last 25 days",
+  "HEGAM": "price jump: possible stock split or data error in the last 25 days",
+  "SICAGEN": "not enough history",
+  "VERANDA": "price jump: possible stock split or data error in the last 25 days"
+ },
+ "models": {
+  "trained_on_data_until": "2026-10-06",
+  "xgb_trees": 800,
+  "trained_at": "2026-10-06T15:29:36"
+ }
+}
