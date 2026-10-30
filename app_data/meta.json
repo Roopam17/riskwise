@@ -1,0 +1,31 @@
+{
+ "asof": "2026-10-30",
+ "generated_at": "2026-10-30T23:40:45+05:30",
+ "stocks_with_forecast": 1578,
+ "stocks_total": 2599,
+ "levels": {
+  "High": 691,
+  "Medium": 523,
+  "Low": 364
+ },
+ "flagged_today": 18,
+ "risk_bands": {
+  "low_below": 2.31,
+  "high_from": 3.07,
+  "made_from": "ensemble out-of-sample guesses, last 12 months to 2026-09-28"
+ },
+ "skipped": {
+  "POLICYBZR": "price jump: possible stock split or data error in the last 25 days",
+  "VISHAL": "not enough history",
+  "WATERBASE": "not enough history",
+  "BHAGYANGR": "price jump: possible stock split or data error in the last 25 days",
+  "ICICIPRULI": "not enough history",
+  "SICAGEN": "not enough history",
+  "VERANDA": "price jump: possible stock split or data error in the last 25 days"
+ },
+ "models": {
+  "trained_on_data_until": "2026-10-06",
+  "xgb_trees": 800,
+  "trained_at": "2026-10-06T15:29:36"
+ }
+}
