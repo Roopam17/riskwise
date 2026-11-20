@@ -1,0 +1,29 @@
+{
+ "asof": "2026-11-20",
+ "generated_at": "2026-11-21T02:11:17+05:30",
+ "stocks_with_forecast": 1581,
+ "stocks_total": 2599,
+ "levels": {
+  "Medium": 597,
+  "High": 528,
+  "Low": 456
+ },
+ "flagged_today": 11,
+ "risk_bands": {
+  "low_below": 2.31,
+  "high_from": 3.07,
+  "made_from": "ensemble out-of-sample guesses, last 12 months to 2026-09-28"
+ },
+ "skipped": {
+  "NOVARTIND": "not enough history",
+  "VISHAL": "not enough history",
+  "WATERBASE": "not enough history",
+  "ICICIPRULI": "not enough history",
+  "SICAGEN": "not enough history"
+ },
+ "models": {
+  "trained_on_data_until": "2026-10-06",
+  "xgb_trees": 800,
+  "trained_at": "2026-10-06T15:29:36"
+ }
+}
